@@ -9,32 +9,96 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h
+ * @brief Declarations for basic statistics utilities on byte arrays.
  *
- * <Add Extended Description Here>
+ * This header file provides function prototypes for analyzing arrays of 
+ * unsigned char data: printing arrays, computing and printing statistics, 
+ * and sorting arrays in descending order. 
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
- *
+ * Author: Ali Shawahna
+ * Date:   2025-09-17
  */
+
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
+/**
+ * @brief Print all elements of an array to stdout.
+ *
+ * @param arr Pointer to the array (read-only).
+ * @param len Number of elements in the array.
+ */
+void print_array(const unsigned char *arr, unsigned int len);
 
 /**
- * @brief <Add Brief Description of Function Here>
+ * @brief Compute and print statistics (minimum, maximum, mean, median).
  *
- * <Add Extended Description Here>
+ * This function computes the statistics using helper functions 
+ * and prints them in a formatted manner.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- *
- * @return <Add Return Informaiton here>
+ * @param arr Pointer to the array (read-only).
+ * @param len Number of elements in the array.
  */
+void print_statistics(const unsigned char *arr, unsigned int len);
 
+/**
+ * @brief Find the median value of an array.
+ *
+ * Sorts the input array in descending order and returns the middle element 
+ * (or average of the two middle elements for even length).
+ * NOTE: This function modifies the input array.
+ *
+ * @param arr Pointer to the array (will be modified by sorting).
+ * @param len Number of elements in the array.
+ * @return Median value (0 if len == 0).
+ */
+unsigned char find_median(unsigned char *arr, unsigned int len);
+
+/**
+ * @brief Compute the mean (average) of an array.
+ *
+ * The sum of all elements is divided by the number of elements.
+ * Integer division truncates toward zero (rounds down).
+ *
+ * @param arr Pointer to the array (read-only).
+ * @param len Number of elements in the array.
+ * @return Mean value (0 if len == 0).
+ */
+unsigned char find_mean(const unsigned char *arr, unsigned int len);
+
+/**
+ * @brief Find the maximum element in an array.
+ *
+ * @param arr Pointer to the array (read-only).
+ * @param len Number of elements in the array.
+ * @return Maximum value (0 if len == 0).
+ */
+unsigned char find_maximum(const unsigned char *arr, unsigned int len);
+
+/**
+ * @brief Find the minimum element in an array.
+ *
+ * @param arr Pointer to the array (read-only).
+ * @param len Number of elements in the array.
+ * @return Minimum value (0 if len == 0).
+ */
+unsigned char find_minimum(const unsigned char *arr, unsigned int len);
+
+/**
+ * @brief Sort an array in descending order (largest to smallest).
+ *
+ * @param arr Pointer to the array (will be modified in-place).
+ * @param len Number of elements in the array.
+ */
+void sort_array(unsigned char *arr, unsigned int len);
+
+/**
+ * @brief Swap the values of two unsigned char variables.
+ *
+ * @param a Pointer to the first variable.
+ * @param b Pointer to the second variable.
+ */
+void swap(unsigned char *a, unsigned char *b);
 
 #endif /* __STATS_H__ */
